@@ -3,6 +3,9 @@ package com.auribises.controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.Cookie;
@@ -14,11 +17,25 @@ import javax.servlet.http.HttpSession;
 @WebServlet({ "/LoginServlet", "/Login" })
 public class LoginServlet extends HttpServlet {
 	
+	
+	@Override
+	public void init() throws ServletException {
+		super.init();
+	}
+	
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		// Write the response back to Client
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
+		
+		
+		ServletConfig config = getServletConfig();
+		String driver = config.getInitParameter("driver");
+		
+		
+		ServletContext context = getServletContext();
+		String drv = config.getInitParameter("driver");
 		
 		// Reading the data from Request by Client
 		String email = request.getParameter("txtEmail");
@@ -26,10 +43,11 @@ public class LoginServlet extends HttpServlet {
 		
 		// DB Operation
 		if(email.equals("admin@example.com") && password.equals("password123")){
+			
 			out.println("<b>Login is Success<b>");
 			
 			// This data shall be extracted from DB
-			String name = "John Watson";
+			/*String name = "John Watson";
 			int age = 30;
 			
 			//1. Cookies -> HashMap (Key-Value Pair)
@@ -55,13 +73,19 @@ public class LoginServlet extends HttpServlet {
 			out.print("</form>");*/
 			
 			//4. HttpSession
-			HttpSession session = request.getSession();
+			/*HttpSession session = request.getSession();
 			session.setAttribute("keyName", name);	
 			session.setAttribute("keyAge", String.valueOf(age));	
-			out.println("<a href='Welcome'>Enter Home</a>");
+			out.println("<a href='Welcome'>Enter Home</a>");*/
+			
+			RequestDispatcher dispatcher = request.getRequestDispatcher("Welcome");
+			dispatcher.forward(request, response);
 			
 		}else{
-			out.println("<i>Login is Failure<i>");
+			out.println("<i>Login is Failure<i><br/>");
+			//RequestDispatcher dispatcher = request.getRequestDispatcher("existinguser.html");
+			//dispatcher.include(request, response);
+			response.sendRedirect("https://www.google.co.in?q=Auribises");
 		}
 	}
 

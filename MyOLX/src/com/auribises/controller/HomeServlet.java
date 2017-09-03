@@ -21,6 +21,7 @@ public class HomeServlet extends HttpServlet {
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
 		
+		// Send Back the Response
 		out.println("Welcome Admin, Its: "+new Date()+"<br/>");
 		
 		// Read the Cookies
@@ -32,11 +33,11 @@ public class HomeServlet extends HttpServlet {
 		//String name = request.getParameter("txtName");
 		//String age = request.getParameter("txtAge");
 		
-		HttpSession session = request.getSession();
+		/*HttpSession session = request.getSession();
 		String name = (String)session.getAttribute("keyName");
 		String age = (String)session.getAttribute("keyAge");
 		
-		out.print(name+" - "+age);
+		out.print(name+" - "+age);*/
 		
 	}
 
