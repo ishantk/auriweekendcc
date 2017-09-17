@@ -13,6 +13,9 @@
         <property name="show_sql">true</property>
         <property name="hibernate.hbm2ddl.auto">update</property>               
         <!-- <mapping resource="employee.hbm.xml"/>  -->
-        <mapping class="com.auribises.Student"/>       
+        <!-- <mapping class="com.auribises.Student"/> -->
+        <!-- <mapping resource="onetoone.hbm.xml"/>  -->
+        <!-- <mapping resource="onetomany.hbm.xml"/> -->
+        <mapping resource="inheritance.hbm.xml"/>       
     </session-factory>
 </hibernate-configuration>

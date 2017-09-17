@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping>
+   <class name="com.auribises.Product" table="ECOM" discriminator-value="Product">
+      <id name="id" column="PID">
+         <generator class="increment"/>
+      </id>
+      <discriminator type="string" column="TYPE"/>
+      <property name="price" column="PRICE" />
+      
+      <subclass name="com.auribises.Electronics" discriminator-value="Electronics">
+      	<property name="screen" column="SCREEN" />
+      	
+      	<subclass name="com.auribises.Mobile" discriminator-value="Mobile">
+      		<property name="name" column="NAME" />
+      	</subclass>
+      	
+      </subclass>
+      
+   </class>
+
+   
+</hibernate-mapping>
