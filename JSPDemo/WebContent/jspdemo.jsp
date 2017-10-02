@@ -2,6 +2,8 @@
     pageEncoding="UTF-8"%>
     
 <%@ page errorPage="errorpage.jsp" %>
+
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
     
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -59,13 +61,27 @@
 	
 	<%
 		int[] arr= {10,20,30,40,50};
-		out.print(arr[5]);
+		out.print(arr[3]);
 		/*try{
 			out.print(arr[5]);
 		}catch(Exception e){
 			out.print(e);
 		}*/
 	%>
+	<br/>	
+	JSTL Demo
+	<br/><br/>
+	<c:forEach var="i" begin="1" end="10">
+		I is: <c:out value="${i}"/> <br/>
+	</c:forEach>
+	
+	<c:redirect url="welcome.jsp"/>
+	
+	<c:set var="age" value="20"/>
+	
+	<c:if test="${age > 18}">
+		You can Vote
+	</c:if>
 	
 </body>
 </html>
