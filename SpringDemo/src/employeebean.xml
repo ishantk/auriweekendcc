@@ -8,13 +8,14 @@
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context-3.0.xsd">
     
-   <bean id="emp1" class="com.auribises.Employee" init-method="myInit" destroy-method="myDestroy">
+   <!-- <bean id="emp1" class="com.auribises.Employee" init-method="myInit" destroy-method="myDestroy"> -->
+  <!--  <bean id="emp1" class="com.auribises.Employee" scope="prototype">
        <property name="eid" value="201"/>
        <property name="name" value="Jennie"/>
        <property name="age" value="20"/>
        <property name="email" value="jennie@example.com"/>
        <property name="address" value="Country Homes"/>
-   </bean>
+   </bean> -->
    
    <!--  <bean id="emp2" class="com.auribises.Employee">
        <property name="eid" value="301"/>
@@ -23,5 +24,30 @@
        <property name="email" value="jack@example.com"/>
        <property name="address" value="Country Homes North"/>
    </bean> -->
+   
+  <!--  <bean id="adRef" class="com.auribises.Address">
+       <property name="adrsLine" value="Country Homes"/>
+       <property name="city" value="Ludhiana"/>
+       <property name="zipCode" value="141002"/>
+   </bean>
+   
+   <bean id="pers" class="com.auribises.Person">
+       <property name="name" value="John Watson"/>
+       <property name="age" value="30"/>
+       <constructor-arg ref="adrs"/>
+       <property name="adrs" ref="adRef"/>
+   </bean> -->
+   
+   <bean id="fRef" class="com.auribises.Father">
+       <property name="fname" value="John"/>
+       <property name="lname" value="Watson"/>
+       <property name="money" value="50000"/>
+   </bean>
+   
+   <bean id="sRef" class="com.auribises.Son" parent="fRef">
+       <property name="fname" value="Jack"/>
+       <property name="vehicles" value="2"/>
+       <property name="pocketMoney" value="5000"/>
+   </bean>
 
 </beans>

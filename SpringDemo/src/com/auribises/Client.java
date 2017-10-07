@@ -12,14 +12,14 @@ public class Client {
 	public static void main(String[] args) {
 		
 		// Traditional Way
-		Employee emp = new Employee();
-		emp.setEid(101);
-		emp.setName("John");
-		emp.setEmail("john@example.com");
-		emp.setAge(30);
-		emp.setAddress("Redwood Shores");
-
-		System.out.println("Employee is: "+emp);
+//		Employee emp = new Employee();
+//		emp.setEid(101);
+//		emp.setName("John");
+//		emp.setEmail("john@example.com");
+//		emp.setAge(30);
+//		emp.setAddress("Redwood Shores");
+//
+//		System.out.println("Employee is: "+emp);
 		
 		// IOC | Inversion Of Control
 		// You dont create the objects. 
@@ -47,15 +47,31 @@ public class Client {
 //		System.out.println(eRef2);
 		
 		ApplicationContext context = new ClassPathXmlApplicationContext("employeebean.xml");
-//		
+		
 //		Employee eRef1 = (Employee)context.getBean("emp1");
 //		Employee eRef2 = context.getBean("emp2",Employee.class);
 //		
 //		System.out.println(eRef1);
 //		System.out.println(eRef2);
 		
-		 ClassPathXmlApplicationContext cxt = ( ClassPathXmlApplicationContext)context;
-		 cxt.close();
+//		Employee eRef1 = (Employee)context.getBean("emp1");
+//		Employee eRef2 = (Employee)context.getBean("emp1");
+//		
+//		System.out.println(eRef1);
+//		System.out.println(eRef2);
+		
+		//Address aRef = context.getBean("adrs",Address.class);
+		//System.out.println(aRef);
+		
+//		Person pRef = context.getBean("pers",Person.class);
+//		System.out.println(pRef);
+		
+		Son sRef = context.getBean("sRef",Son.class);
+		System.out.println(sRef);
+		//System.out.println(sRef.getFname()+" - "+sRef.getLname());
+		
+		ClassPathXmlApplicationContext cxt = ( ClassPathXmlApplicationContext)context;
+		cxt.close();
 	}
 
 }

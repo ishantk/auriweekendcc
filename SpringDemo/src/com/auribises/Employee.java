@@ -67,7 +67,7 @@ public class Employee {
 	@Override
 	public String toString() {
 		return "Employee [eid=" + eid + ", name=" + name + ", age=" + age + ", email=" + email + ", address=" + address
-				+ "]";
+				+ "]\n"+super.toString();
 	}
 	
 	public void myInit(){
