@@ -1,5 +1,7 @@
 package com.auribises;
 
+import java.util.List;
+
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.xml.XmlBeanFactory;
 import org.springframework.context.ApplicationContext;
@@ -48,10 +50,10 @@ public class Client {
 		
 		ApplicationContext context = new ClassPathXmlApplicationContext("employeebean.xml");
 		
-//		Employee eRef1 = (Employee)context.getBean("emp1");
+		//Employee eRef1 = (Employee)context.getBean("emp1");
 //		Employee eRef2 = context.getBean("emp2",Employee.class);
 //		
-//		System.out.println(eRef1);
+		//System.out.println(eRef1);
 //		System.out.println(eRef2);
 		
 //		Employee eRef1 = (Employee)context.getBean("emp1");
@@ -66,9 +68,22 @@ public class Client {
 //		Person pRef = context.getBean("pers",Person.class);
 //		System.out.println(pRef);
 		
-		Son sRef = context.getBean("sRef",Son.class);
-		System.out.println(sRef);
+		//Son sRef = context.getBean("sRef",Son.class);
+		//System.out.println(sRef);
 		//System.out.println(sRef.getFname()+" - "+sRef.getLname());
+		
+		/*Manager mRef = context.getBean("mgr",Manager.class);
+		System.out.println(mRef.getName()+" has these many certificates");
+		System.out.println(mRef.getCertificates());
+		
+		List<String> certiList = mRef.getCertificates();
+		for(String s : certiList){
+			System.out.println(s);
+		}*/
+		
+		CB cbRef = context.getBean("cb",CB.class);
+		
+		cbRef.getCa().sayHello("John");
 		
 		ClassPathXmlApplicationContext cxt = ( ClassPathXmlApplicationContext)context;
 		cxt.close();

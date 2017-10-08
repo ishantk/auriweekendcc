@@ -8,14 +8,17 @@
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context-3.0.xsd">
     
-   <!-- <bean id="emp1" class="com.auribises.Employee" init-method="myInit" destroy-method="myDestroy"> -->
-  <!--  <bean id="emp1" class="com.auribises.Employee" scope="prototype">
+   
+  <!--  <bean id="emp1" class="com.auribises.Employee" scope="prototype"> -->
+  <!-- <bean id="emp1" class="com.auribises.Employee" init-method="myInit" destroy-method="myDestroy"> 
        <property name="eid" value="201"/>
        <property name="name" value="Jennie"/>
        <property name="age" value="20"/>
        <property name="email" value="jennie@example.com"/>
        <property name="address" value="Country Homes"/>
    </bean> -->
+   
+   <!-- <bean class="com.auribises.PostProcessor"/> -->
    
    <!--  <bean id="emp2" class="com.auribises.Employee">
        <property name="eid" value="301"/>
@@ -38,7 +41,7 @@
        <property name="adrs" ref="adRef"/>
    </bean> -->
    
-   <bean id="fRef" class="com.auribises.Father">
+ <!--   <bean id="fRef" class="com.auribises.Father">
        <property name="fname" value="John"/>
        <property name="lname" value="Watson"/>
        <property name="money" value="50000"/>
@@ -48,6 +51,24 @@
        <property name="fname" value="Jack"/>
        <property name="vehicles" value="2"/>
        <property name="pocketMoney" value="5000"/>
-   </bean>
+   </bean> -->
 
+	<!-- <bean id="mgr" class="com.auribises.Manager"> 
+       <property name="name" value="Jennie"/>
+       <property name="age" value="20"/>
+       <property name="email" value="jennie@example.com"/>
+       <property name="certificates">
+       	<list>
+       		<value>AWS</value>
+       		<value>OCJP</value>
+       		<value>CCNA</value>
+       	</list>
+       </property>
+   </bean> -->
+   
+   <bean id="ca" class="com.auribises.CA"/>
+   <bean id="cb" class="com.auribises.CB"/>
+    		
+   <context:annotation-config/> 		
+    		
 </beans>
