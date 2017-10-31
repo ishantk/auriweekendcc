@@ -21,7 +21,7 @@ public class App {
 
 		// JDBC
 		
-		try {
+		/*try {
 			
 			//1. Load the Driver
 			Class.forName("com.mysql.jdbc.Driver");
@@ -61,7 +61,10 @@ public class App {
 			
 		} catch (Exception e) {
 			System.out.println("Some Error: "+e);
-		}
+		}*/
+		
+		RegisterUI ui = new RegisterUI();
+		ui.showFrame();
 		
 		
 		System.out.println("App Finished");
