@@ -9,6 +9,22 @@ public class Student {
 	String email;
 	String address;
 	
+	Student(){
+		
+	}
+	
+	
+	
+	public Student(int roll, String name, int age, String email, String address) {
+		this.roll = roll;
+		this.name = name;
+		this.age = age;
+		this.email = email;
+		this.address = address;
+	}
+
+
+
 	public int getRoll() {
 		return roll;
 	}

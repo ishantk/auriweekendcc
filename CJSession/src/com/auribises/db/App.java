@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 public class App {
 
@@ -12,13 +13,31 @@ public class App {
 		
 		Student s1 = new Student();
 		s1.roll = 2;
-		s1.name = "Jennie";
-		s1.age = 21;
-		s1.email = "jennie@example.com";
-		s1.address = "Country Homes";
+		s1.name = "Cavita Watson";
+		s1.age = 27;
+		s1.email = "cavita@example.com";
+		s1.address = "Some Address";
 		
-		System.out.println(s1.name+" lives in "+s1.address);
+		
+		//System.out.println(s1.name+" lives in "+s1.address);
+		
+		JDBCHelper helper = new JDBCHelper();
+		helper.createConnection();
+		//helper.updateStudent(s1);
+		//helper.deleteStudent(1);
+		//ArrayList<Student> stuList = helper.retrieveStudents();
+		
+		//helper.executeProcedure(s1);
+		
+		helper.batchProcessing();
+		
+		helper.closeConnection();
 
+		
+		/*for(Student s: stuList){
+			System.out.println(s);
+		}*/
+		
 		// JDBC
 		
 		/*try {
@@ -63,8 +82,8 @@ public class App {
 			System.out.println("Some Error: "+e);
 		}*/
 		
-		RegisterUI ui = new RegisterUI();
-		ui.showFrame();
+		//RegisterUI ui = new RegisterUI();
+		//ui.showFrame();
 		
 		
 		System.out.println("App Finished");
